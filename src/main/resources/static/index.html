@@ -8,12 +8,16 @@
 <h1>BESTILLING AV KINOBILLETTER</h1>
 <form>
     <select id="mySelect">
-        <option>Select movie:</option>
-        <option>Wonka</option>
-        <option>DUNE: Part Two</option>
-        <option>Perfect Days</option>
+        <option value="0">Select movie:</option>
+        <option value="1">Wonka</option>
+        <option value="2">DUNE: Part Two</option>
+        <option value="3">Perfect Days</option>
     </select>
     <br><br>
 </form>
+<!--I have sourced the content of the <form> element from w3schools tutorial on javascript  -->
+<button onclick="buyTicket()">
+    Buy Ticket(s)
+</button>
 </body>
 </html>
