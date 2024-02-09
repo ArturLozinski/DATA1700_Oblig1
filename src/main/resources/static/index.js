@@ -1,23 +1,24 @@
-const tickets = [];
+let tickets = [];
 
 function buyTicket() {
-    const input = {
+    let input = {
         movie: document.getElementById("movieSelect").value,
-        tickets: document.getElementById("numberOfTickets").value,
+        tickets: document.getElementById("number").value,
         first_name: document.getElementById("fname").value,
         last_name: document.getElementById("lname").value,
         email: document.getElementById("email").value,
         phone: document.getElementById("phone").value
     }
+
     tickets.push(input);
     displayTicketTable();
 
-    document.getElementById("movieSelect").value = "0"; // Reset select dropdown to default option
-    document.getElementById("numberOfTickets").value = ""; // Clear number of tickets input
-    document.getElementById("fname").value = ""; // Clear first name input
-    document.getElementById("lname").value = ""; // Clear last name input
-    document.getElementById("email").value = ""; // Clear email input
-    document.getElementById("phone").value = ""; // Clear phone input
+    document.getElementById("movieSelect").value = "0";
+    document.getElementById("number").value = "";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
 }
 
 function displayTicketTable() {
@@ -38,6 +39,6 @@ function displayTicketTable() {
 }
 
 function dropTable() {
-    tickets.pop();
+    tickets = [];
     displayTicketTable()
 }
