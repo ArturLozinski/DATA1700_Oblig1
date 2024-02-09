@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Kino</title>
+    <script src="index.js"></script>
+</head>
+<body>
+<h1>BESTILLING AV KINOBILLETTER</h1>
+<form>
+    <select id="mySelect">
+        <label>Select a movie</label>
+        <option value="0">Select movie:</option>
+        <option value="1">Wonka</option>
+        <option value="2">DUNE: Part Two</option>
+        <option value="3">Perfect Days</option>
+    </select>
+    <br><br>
+    <table>
+        <tr>
+            <td align="right">Number of tickets:</td>
+            <td align="left"><input type="number" name="tickets" /></td>
+        </tr>
+        <tr>
+            <td align="right">First Name:</td>
+            <td align="left"><input type="text" name="first" /></td>
+        </tr>
+        <tr>
+            <td align="right">Last Name:</td>
+            <td align="left"><input type="text" name="last" /></td>
+        </tr>
+        <tr>
+            <td align="right">Email:</td>
+            <td align="left"><input type="text" name="email" /></td>
+        </tr>
+        <tr>
+            <td align="right">Phonenumber:</td>
+            <td align="left"><input type="text" name="number" /></td>
+        </tr>
+    </table>
+</form>
+<br><br>
+<!--I have sourced the content of the <form> element from w3schools tutorial on html  -->
+<button onclick="buyTicket()">
+    Buy Ticket(s)
+</button>
+</body>
+</html>
