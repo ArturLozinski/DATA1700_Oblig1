@@ -15,27 +15,33 @@
         <option value="2">2. DUNE: Part Two</option>
         <option value="3">3. Perfect Days</option>
     </select>
+    <span id="invalidChoice" style="color:red"></span>
     <br><br>
     <table>
         <tr>
-            <td align="right">Number of tickets:</td>
-            <td align="left"><input type="number" id="number" name="tickets"/></td>
+            <td>Number of tickets:</td>
+            <td><input type="number" id="number" name="tickets"/></td>
+            <td id="invalidNumber" style="color:red"></td>
         </tr>
         <tr>
-            <td align="right">First Name:</td>
-            <td align="left"><input type="text" id="fname" name="first"/></td>
+            <td>First Name:</td>
+            <td><input type="text" id="fname" name="first"/></td>
+            <td id="invalidFirstName" style="color:red"></td>
         </tr>
         <tr>
-            <td align="right">Last Name:</td>
-            <td align="left"><input type="text" id="lname" name="last"/></td>
+            <td>Last Name:</td>
+            <td><input type="text" id="lname" name="last"/></td>
+            <td id="invalidLastName" style="color:red"></td>
         </tr>
         <tr>
-            <td align="right">Email:</td>
-            <td align="left"><input type="text" id="email" name="email"/></td>
+            <td>Email:</td>
+            <td><input type="text" id="email" name="email"/></td>
+            <td id="invalidEmail" style="color:red"></td>
         </tr>
         <tr>
-            <td align="right">Phonenumber:</td>
-            <td align="left"><input type="text" id="phone" name="number"/></td>
+            <td>Phonenumber:</td>
+            <td><input type="text" id="phone" name="number"/></td>
+            <td id="invalidPhone" style="color:red"></td>
         </tr>
     </table>
 </form>
