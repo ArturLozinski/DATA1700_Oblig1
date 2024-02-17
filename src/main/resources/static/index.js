@@ -1,4 +1,4 @@
-let allTickets = [];
+let ticketArray = [];
 
 function buyTicket() {
 
@@ -16,12 +16,11 @@ function buyTicket() {
         errorMessage = true;
     }
 
-    //let numberOfTickets = document.getElementById("number").value;
     if (tickets === null || tickets <= 0) {
         document.getElementById("invalidNumber").innerHTML = "Please enter a valid amount of tickets";
         errorMessage = true;
     }
-
+    // The following if-statements refer to the regex functions defined further below.
     if (!validFirstName(first_name) || first_name === "") {
         document.getElementById("invalidFirstName").innerHTML = "Please fill out your first name, 3-20 alphabetical characters";
         errorMessage = true;
@@ -41,7 +40,7 @@ function buyTicket() {
         document.getElementById("invalidPhone").innerHTML = "Please enter a valid phone number";
         errorMessage = true;
     }
-
+    // If all the validations above pass, the input gets set
     if (!errorMessage) {
         let ticketInput = {
             movie: movie,
@@ -52,19 +51,20 @@ function buyTicket() {
             phone: phone
         }
         console.log(ticketInput);
-        allTickets.push(ticketInput);
+        ticketArray.push(ticketInput);
         displayTicketTable();
         clearInput();
         clearErrorMessages();
     }
 }
 
-function validFirstName(fname){
+// regex for name validation seemed imperative
+function validFirstName(fname) {
     let re = /^([a-zæøåA-ZÆØÅ]{3,20})$/;
     return re.test(fname);
 }
 
-function validLastName(lname){
+function validLastName(lname) {
     let re = /^([a-zæøåA-ZÆØÅ]{3,20})$/;
     return re.test(lname);
 }
@@ -76,10 +76,10 @@ function validEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-// Phone validation function
+// Phone validation function that can also start with a + sign for country code and a international standard maximum of 15 characters.
 // Checked with regexr.com
 function validPhone(phone) {
-    let re = /^\d{8}$/;
+    let re = /^\+?[0-9]{8,15}$/;
     return re.test(phone);
 }
 
@@ -96,7 +96,7 @@ function displayTicketTable() {
     let out = "<table><tr>" +
         "<th>Movie</th><th>Tickets</th><th>First name</th><th>Last name</th><th>E-Mail</th><th>Phonenumber</th>" +
         "</tr>";
-    for (let p of allTickets) {
+    for (let p of ticketArray) {
         out += "<tr>";
         out += "<td>" + p.movie + "</td>" +
             "<td>" + p.tickets + "</td>" +
@@ -120,6 +120,6 @@ function clearErrorMessages() {
 }
 
 function dropTable() {
-    allTickets = [];
+    ticketArray = [];
     displayTicketTable()
 }
