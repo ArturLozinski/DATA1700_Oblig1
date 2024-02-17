@@ -22,13 +22,13 @@ function buyTicket() {
         errorMessage = true;
     }
 
-    if (first_name === "") {
-        document.getElementById("invalidFirstName").innerHTML = "Please fill out your first name";
+    if (!validFirstName(first_name) || first_name === "") {
+        document.getElementById("invalidFirstName").innerHTML = "Please fill out your first name, 3-20 alphabetical characters";
         errorMessage = true;
     }
 
-    if (last_name === "") {
-        document.getElementById("invalidLastName").innerHTML = "Please fill out your last name";
+    if (!validLastName(last_name) || last_name === "") {
+        document.getElementById("invalidLastName").innerHTML = "Please fill out your last name, 3-20 alphabetical characters";
         errorMessage = true;
     }
 
@@ -59,13 +59,25 @@ function buyTicket() {
     }
 }
 
+function validFirstName(fname){
+    let re = /^([a-zæøåA-ZÆØÅ]{3,20})$/;
+    return re.test(fname);
+}
+
+function validLastName(lname){
+    let re = /^([a-zæøåA-ZÆØÅ]{3,20})$/;
+    return re.test(lname);
+}
+
 // Email validation function
+// Checked with regexr.com
 function validEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
 // Phone validation function
+// Checked with regexr.com
 function validPhone(phone) {
     let re = /^\d{8}$/;
     return re.test(phone);
