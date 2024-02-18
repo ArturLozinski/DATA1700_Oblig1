@@ -21,22 +21,22 @@ function buyTicket() {
         errorMessage = true;
     }
     // The following if-statements refer to the regex functions defined further below.
-    if (!validFirstName(first_name) || first_name === "") {
+    if (!validFirstName(first_name)) {
         document.getElementById("invalidFirstName").innerHTML = "Please fill out your first name, 3-20 alphabetical characters";
         errorMessage = true;
     }
 
-    if (!validLastName(last_name) || last_name === "") {
+    if (!validLastName(last_name)) {
         document.getElementById("invalidLastName").innerHTML = "Please fill out your last name, 3-20 alphabetical characters";
         errorMessage = true;
     }
 
-    if (!validEmail(email) || email === "") {
+    if (!validEmail(email)) {
         document.getElementById("invalidEmail").innerHTML = "Please enter a valid email adress";
         errorMessage = true;
     }
 
-    if (!validPhone(phone) || phone === "") {
+    if (!validPhone(phone)) {
         document.getElementById("invalidPhone").innerHTML = "Please enter a valid phone number";
         errorMessage = true;
     }
@@ -79,7 +79,7 @@ function validEmail(email) {
 // Phone validation function that can also start with a + sign for country code and a international standard maximum of 15 characters.
 // Checked with regexr.com
 function validPhone(phone) {
-    let re = /^\+?[0-9]{8,15}$/;
+    let re = /^\+?[0-9]{8,15}$/; // Sourced from https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s03.html
     return re.test(phone);
 }
 
@@ -116,7 +116,6 @@ function clearErrorMessages() {
     document.getElementById("invalidLastName").innerHTML = "";
     document.getElementById("invalidEmail").innerHTML = "";
     document.getElementById("invalidPhone").innerHTML = "";
-
 }
 
 function dropTable() {
